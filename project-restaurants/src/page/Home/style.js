@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
 
 export const Container = styled.aside`
 
     background-color: ${(props) => props.theme.colors.background};
     width: 360px;
     height: 100vh;
-    overflow-y: scroll;
+    overflow-y: auto;
 `;
 
 export const Search = styled.section`
@@ -14,7 +18,18 @@ export const Search = styled.section`
     flex-direction: column;
     justify-content: center;
     background-color: #fff;
-    padding: 14px;
+    padding: 16px;
+`;
+
+export const Logo = styled.img`
+    margin-bottom: 14px;
+    width: 200px;
+`;
+
+export const Map = styled.div`
+    background-color: blue;
+    width: 100vw;
+
 `;
 
 
