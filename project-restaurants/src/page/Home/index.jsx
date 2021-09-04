@@ -10,7 +10,7 @@ import logo from '../../assets/logo.svg';
 import restaurant from '../../assets/restaurante-fake.png';
 
 import { Container, Carousel, Search, Logo, Wrapper, Map, CarouselTitle } from './style';
-import { Card } from '../../componets';
+import { Card, RestaurantCard } from '../../componets';
 
 const Home = () => {
 
@@ -25,12 +25,12 @@ const Home = () => {
             adaptiveHeight: true
           };
     
-
     return(
         <Wrapper>
             <Container>
                 <Search>
                     <Logo src={logo} alt="Logo do restaurante" />
+
                         <TextField
                             label='Pesquisar'
                             outlined
@@ -41,22 +41,26 @@ const Home = () => {
                             onChange={(e) => setInputValue(e.target.value)} 
                         />
                         </TextField>
-                        <CarouselTitle>
-                            Na Sua Área
-                        </CarouselTitle>
-                        <Carousel {...settings}>
-                            <Card photo={restaurant} title="Nome restaurante" />
-                            <Card photo={restaurant} title="Nome restaurante" />
-                            <Card photo={restaurant} title="Nome restaurante" />
-                            <Card photo={restaurant} title="Nome restaurante" />
-                            <Card photo={restaurant} title="Nome restaurante" />
-                            <Card photo={restaurant} title="Nome restaurante" />
-                            <Card photo={restaurant} title="Nome restaurante" />
-                            <Card photo={restaurant} title="Nome restaurante" />
-                            <Card photo={restaurant} title="Nome restaurante" />
-                        </Carousel>
+
+                        <CarouselTitle> Na Sua Área </CarouselTitle>
+                        <Slider>
+                            <Carousel {...settings}>
+                                <Card photo={restaurant} title="Nome restaurante" />
+                                <Card photo={restaurant} title="Nome restaurante" />
+                                <Card photo={restaurant} title="Nome restaurante" />
+                                <Card photo={restaurant} title="Nome restaurante" />
+                                <Card photo={restaurant} title="Nome restaurante" />
+                                <Card photo={restaurant} title="Nome restaurante" />
+                                <Card photo={restaurant} title="Nome restaurante" />
+                                <Card photo={restaurant} title="Nome restaurante" />
+                                <Card photo={restaurant} title="Nome restaurante" />
+                            </Carousel>
+                        </Slider>
+                
                 </Search>
+                <RestaurantCard />
             </Container>
+
             <Map />
         </Wrapper>
     );
