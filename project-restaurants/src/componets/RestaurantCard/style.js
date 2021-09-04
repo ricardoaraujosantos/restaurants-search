@@ -26,7 +26,6 @@ export const Title = styled.span`
     font-size: 24px;
     font-weight: bold;
     line-height: 29px;
-    margin: 10px 0;
 `;
 
 export const Address = styled.span`
@@ -35,4 +34,11 @@ export const Address = styled.span`
     font-size: 14px;
     line-height: 19px;
     margin: 10px 0;
+`;
+
+export const RestaurantePhoto = styled.img`
+    width: 100px;
+    height: 100px;
+    border-radius: 6px;
+    object-fit: cover;
 `;

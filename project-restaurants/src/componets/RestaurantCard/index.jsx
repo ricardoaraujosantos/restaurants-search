@@ -1,6 +1,8 @@
 import React from "react";
 import ReactStars from "react-rating-stars-component";
-import { Address, Restaurant, RestaurantInfo, Title } from "./style";
+import { Address, Restaurant, RestaurantInfo, RestaurantePhoto, Title } from "./style";
+
+import restaurant from '../../assets/restaurante-fake.png'
 
 const RestaurantCard = () => ( 
             <Restaurant>
@@ -13,8 +15,9 @@ const RestaurantCard = () => (
                                  value={4}
                     >
                     </ReactStars>
-                    <Address>Endereço</Address>
+                    <Address>Endereço rua travessa av</Address>
                 </RestaurantInfo>
+                <RestaurantePhoto src={restaurant} alt="foto do restaurante" />
             </Restaurant>
     );
 
