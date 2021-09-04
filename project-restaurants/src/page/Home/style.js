@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import Slider from "react-slick";
+
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -40,4 +42,8 @@ export const CarouselTitle = styled.h1`
     margin: 16px 0;
 `;
 
-
+export const Carousel = styled(Slider)`
+    .slick-slider{
+        margin: 16px;
+    }
+`;

@@ -9,7 +9,7 @@ import MaterialIcon from '@material/react-material-icon';
 import logo from '../../assets/logo.svg';
 import restaurant from '../../assets/restaurante-fake.png';
 
-import { Container, Search, Logo, Wrapper, Map, CarouselTitle } from './style';
+import { Container, Carousel, Search, Logo, Wrapper, Map, CarouselTitle } from './style';
 import { Card } from '../../componets';
 
 const Home = () => {
@@ -44,16 +44,17 @@ const Home = () => {
                         <CarouselTitle>
                             Na Sua Área
                         </CarouselTitle>
-                        <Slider {...settings}>
-                            <Card photo={restaurant} />
-                            <Card photo={restaurant} />
-                            <Card photo={restaurant} />
-                            <Card photo={restaurant} />
-                            <Card photo={restaurant} />
-                            <Card photo={restaurant} />
-                            <Card photo={restaurant} />
-                            <Card photo={restaurant} />
-                        </Slider>
+                        <Carousel {...settings}>
+                            <Card photo={restaurant} title="Nome restaurante" />
+                            <Card photo={restaurant} title="Nome restaurante" />
+                            <Card photo={restaurant} title="Nome restaurante" />
+                            <Card photo={restaurant} title="Nome restaurante" />
+                            <Card photo={restaurant} title="Nome restaurante" />
+                            <Card photo={restaurant} title="Nome restaurante" />
+                            <Card photo={restaurant} title="Nome restaurante" />
+                            <Card photo={restaurant} title="Nome restaurante" />
+                            <Card photo={restaurant} title="Nome restaurante" />
+                        </Carousel>
                 </Search>
             </Container>
             <Map />
