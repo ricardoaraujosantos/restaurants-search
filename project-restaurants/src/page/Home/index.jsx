@@ -9,8 +9,8 @@ import MaterialIcon from '@material/react-material-icon';
 import logo from '../../assets/logo.svg';
 import restaurant from '../../assets/restaurante-fake.png';
 
-import { Container, Carousel, Search, Logo, Wrapper, Map, CarouselTitle } from './style';
-import { Card, RestaurantCard, Modal } from '../../componets/index';
+import { Container, Carousel, Search, Logo, Wrapper, CarouselTitle } from './style';
+import { Card, RestaurantCard, Modal, Map } from '../../componets/index';
 
 const Home = () => {
 
@@ -58,13 +58,13 @@ const Home = () => {
                                 <Card photo={restaurant} title="Nome restaurante" />
                             </Carousel>
                         </Slider>
-                        <button onClick={() => setModalOpened(true)}>Abrir Modal</button>
+                       {/* <button onClick={() => setModalOpened(true)}>Abrir Modal</button>*/ }
                 </Search>
                 <RestaurantCard />
             </Container>
 
             <Map />
-            <Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)} />
+            <Modal open={modalOpened} onClose={() => setModalOpened (!modalOpened)} /> 
         </Wrapper>
     );
 };

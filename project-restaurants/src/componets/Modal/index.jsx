@@ -17,7 +17,6 @@ const Modal = ( { children, open, onClose } ) => {
         }
     }, [onClose]);
 
-
     if(!open) return null;
 
     function onOverlayClick(){

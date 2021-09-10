@@ -28,7 +28,7 @@ export const Logo = styled.img`
     width: 200px;
 `;
 
-export const Map = styled.div`
+export const map = styled.div`
     background-color: blue;
     width: 100vw;
 `;
