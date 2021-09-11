@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import { useSelector } from 'react-redux'
+
 import Slider from 'react-slick'
 
 import TextField, {Input} from '@material/react-text-field';
@@ -7,10 +9,11 @@ import TextField, {Input} from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
 
 import logo from '../../assets/logo.svg';
-import restaurant from '../../assets/restaurante-fake.png';
+import restaurante from '../../assets/restaurante-fake.png';
 
 import { Container, Carousel, Search, Logo, Wrapper, CarouselTitle } from './style';
 import { Card, RestaurantCard, Modal, Map } from '../../componets/index';
+import { Restaurant } from '../../componets/RestaurantCard/style';
 
 const Home = () => {
 
@@ -20,12 +23,14 @@ const Home = () => {
 
     const [modalOpened, setModalOpened] = useState(false);
 
+    const { restaurants } = useSelector((state) => state.restaurants);
+
         const settings = {
             dots: false,
             infinite: true,
             speed: 300,
-            slidesToShow: 4,
-            slidesToScroll: 4,
+            slidesToShow: 3,
+            slidesToScroll: 3,
             adaptiveHeight: true
           };
 
@@ -56,20 +61,19 @@ const Home = () => {
                         <CarouselTitle> Na Sua Área </CarouselTitle>
                         <Slider>
                             <Carousel {...settings}>
-                                <Card photo={restaurant} title="Nome restaurante" />
-                                <Card photo={restaurant} title="Nome restaurante" />
-                                <Card photo={restaurant} title="Nome restaurante" />
-                                <Card photo={restaurant} title="Nome restaurante" />
-                                <Card photo={restaurant} title="Nome restaurante" />
-                                <Card photo={restaurant} title="Nome restaurante" />
-                                <Card photo={restaurant} title="Nome restaurante" />
-                                <Card photo={restaurant} title="Nome restaurante" />
-                                <Card photo={restaurant} title="Nome restaurante" />
+                                {restaurants.map((restaurant) => (
+                                    <Card 
+                                        Key={restaurant.place_id}
+                                        photo={restaurant.photos ? restaurant.photos[0].getUrl() : restaurante }
+                                        title={restaurant.name}
+                                    />
+                                ))}
                             </Carousel>
                         </Slider>
                        {/* <button onClick={() => setModalOpened(true)}>Abrir Modal</button>*/ }
                 </Search>
-                <RestaurantCard />
+                {restaurants.map((restaurant) => <RestaurantCard restaurant={restaurant} />)}
+                
             </Container>
 
             <Map query={query} />
