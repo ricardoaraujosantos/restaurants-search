@@ -10,7 +10,7 @@ import logo from '../../assets/logo.svg';
 import restaurante from '../../assets/restaurante-fake.png';
 
 import { Container, Carousel, Search, Logo, Wrapper, CarouselTitle, ModalTitle, ModalContent } from './style';
-import { Card, RestaurantCard, Modal, Map } from '../../componets/index';
+import { Card, RestaurantCard, Modal, Map, Loader } from '../../componets/index';
 
 
 const Home = () => {
@@ -64,9 +64,12 @@ const Home = () => {
                         />
                         </TextField>
 
-                        <CarouselTitle> Na Sua Área </CarouselTitle>
-                        <Carousel {...settings}>
-                            {restaurants.map((restaurant) => (
+                        {restaurants.length > 0 ? (
+
+                            <>
+                                <CarouselTitle> Na Sua Área </CarouselTitle>
+                                <Carousel {...settings}>
+                                {restaurants.map((restaurant) => (
                                 <Card 
                                     Key={restaurant.place_id}
                                     photo={restaurant.photos ? restaurant.photos[0].getUrl() : restaurante }
@@ -74,6 +77,12 @@ const Home = () => {
                                 />
                             ))}
                         </Carousel>
+                            </>
+                        )
+                          : (
+                            <Loader/>
+                        )};
+
                 </Search>
                 {restaurants.map((restaurant) => (
                      <RestaurantCard onClick={() => handleOpenModal(restaurant.place_id)} restaurant={restaurant} />))}  
