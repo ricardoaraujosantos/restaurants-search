@@ -10,7 +10,7 @@ import logo from '../../assets/logo.svg';
 import restaurante from '../../assets/restaurante-fake.png';
 
 import { Container, Carousel, Search, Logo, Wrapper, CarouselTitle, ModalTitle, ModalContent } from './style';
-import { Card, RestaurantCard, Modal, Map, Loader } from '../../componets/index';
+import { Card, RestaurantCard, Modal, Map, Loader, Skeleton } from '../../componets/index';
 
 
 const Home = () => {
@@ -89,12 +89,27 @@ const Home = () => {
             </Container>
 
             <Map query={query} placeId={placeId} />
+            
             <Modal open={modalOpened} onClose={() => setModalOpened (!modalOpened)}>
+                {restaurantSelected? (
+                <>  
                     <ModalTitle>{restaurantSelected?.name}</ModalTitle>
                     <ModalContent>{restaurantSelected?.formatted_phone_number}</ModalContent>
                     <ModalContent>{restaurantSelected?.formatted_address}</ModalContent>
-                    <ModalContent>{restaurantSelected?.opening_hours?.open_now ? 'Aberto Agora' : 'Fechado'}</ModalContent>
-            </Modal> 
+                    <ModalContent>
+                        {restaurantSelected?.opening_hours?.open_now ? 'Aberto Agora' : 'Fechado'}
+                    </ModalContent>
+                </>
+                 )
+                    : (
+                    <>
+                        <Skeleton width= '10px' height= '10px'></Skeleton>
+                        <Skeleton width= '10px' height= '10px'></Skeleton>
+                        <Skeleton width= '10px' height= '10px'></Skeleton>
+                        <Skeleton width= '10px' height= '10px'></Skeleton>
+                    </>
+                )};
+            </Modal>
         </Wrapper>
     );
 };
