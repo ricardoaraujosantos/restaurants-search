@@ -24,11 +24,9 @@ const RestaurantCard = ({ restaurant,onClick }) => {
                     <Address>{ restaurant.vicinity || restaurant.formatted_address }</Address>
                 </RestaurantInfo>
             <RestaurantePhoto 
-
                 imageLoaded={imageLoaded}
                 src={restaurant.photos ? restaurant.photos[0].getUrl() : restaurante} alt="foto do restaurante" 
                 onload={() => setImageLoaded(true)}
-              
             />
             </Restaurant>
         );
